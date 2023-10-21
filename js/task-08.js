@@ -4,15 +4,17 @@ const btn = loginForm.lastElementChild;
 function handleSubmit(event) {
   event.preventDefault();
   const form = event.target;
-  const email = form.elements.email.value;
-  const password = form.elements.password.value;
 
-  if (email === `` || password === ``) {
+  if (form.elements.email.value === `` || form.elements.password.value === ``) {
     return console.log(`Proszę uzupełnić formularz!`);
   }
-  console.log(`Email: ${email},
-  Password: ${password}`);
+  const newObject = {
+    email: form.elements.email.value,
+    password: form.elements.password.value,
+  };
+
   form.reset();
+  console.log(newObject);
 }
 
 loginForm.addEventListener(`submit`, handleSubmit);
